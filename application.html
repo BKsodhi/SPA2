@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BK Tech Hub - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('https://cdn.corporatefinanceinstitute.com/assets/Industry.jpeg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: absolute;
+            top: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 auto;
+            font-size: 24px;
+            color: #333;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        header img {
+            height: 100px;
+        }
+
+        .container {
+            width: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 100px;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #333;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .login-form input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .login-form button {
+            padding: 15px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #4d3967;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #8268a3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo.jpg" alt="BK Tech Hub Logo">
+        <h1>BK Tech Hub</h1>
+    </header>
+
+    <div class="container">
+        <h2>Login</h2>
+        <form class="login-form" id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <h4>Username: Admin/Employee</h4>
+            <h4>Password: Admin@123/Employee@123</h4>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            const managerCredentials = { username: 'Admin', password: 'Admin@123' };
+            const employeeCredentials = { username: 'Employee', password: 'Employee@123' };
+    
+            if (username === managerCredentials.username && password === managerCredentials.password) {
+                window.location.href = 'manager.html';
+            } else if (username === employeeCredentials.username && password === employeeCredentials.password) {
+                window.location.href = 'employee.html';
+            } else {
+                alert('Your username and password are not correct');
+            }
+        });
+    </script>
+</body>
+</html>
